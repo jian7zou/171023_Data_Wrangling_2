@@ -55,5 +55,15 @@ nyc_water = GET("https://data.cityofnewyork.us/resource/waf7-5gvc.csv") %>%
 
 nyc_water = GET("https://data.cityofnewyork.us/resource/waf7-5gvc.json") %>% 
   content("text") %>%
-  jsonlite::fromJSON() %>%
+  jsonlite::fromJSON() %>% 
   as_tibble()
+
+brfss = 
+  GET("https://chronicdata.cdc.gov/api/views/hn4x-zwk7/rows.csv?accessType=DOWNLOAD") %>% 
+  content("parsed")  # use csv type directly
+
+poke = GET("http://pokeapi.co/api/v2/pokemon/1") %>%
+  content()
+
+poke$abilities
+# data is not always in a typical csv
