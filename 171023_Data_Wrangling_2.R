@@ -47,8 +47,11 @@ toothbrush_df = data.frame(
 )
 
 
+# use httr package
 nyc_water = GET("https://data.cityofnewyork.us/resource/waf7-5gvc.csv") %>% 
   content("parsed")
+
+# getting the same data using json
 
 nyc_water = GET("https://data.cityofnewyork.us/resource/waf7-5gvc.json") %>% 
   content("text") %>%
